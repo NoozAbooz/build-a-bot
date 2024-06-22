@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+import { supabase } from './supabaseClient'
+
+import Leaderboard from './leaderboard/leaderboard'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+function App() {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <header className="header">
+          <h1><span className="label">Calgary Stampede</span></h1>
+          <span className="label2">Build-a-Bot</span>
+      </header>
+
+      <Leaderboard />
+
+      <footer className="footer">
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          © 2024 Western Mechatronics. Made with 💖 by 
+          <a href="https://github.com/NoozAbooz/build-a-bot" target="_blank" rel="noopener noreferrer"> Nooz</a>
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </footer>
     </>
-  )
+  );
 }
+
+// db testing
+// function App() {
+//     const [countries, setCountries] = useState([]);
+
+//     useEffect(() => {
+//       getCountries();
+//     }, []);
+
+//     async function getCountries() {
+//       const { data } = await supabase.from("test").select();
+//       setCountries(data);
+//     }
+
+//     return (
+//       <ul>
+//         {countries.map((country) => (
+//           <li key={country.name}>{country.name}</li>
+//         ))}
+//       </ul>
+//     );
+// }
 
 export default App

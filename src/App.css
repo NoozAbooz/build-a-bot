@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -27,16 +26,78 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2em;
+  position: fixed;
+  top: 0;
+  left: 25%;
 }
 
-.card {
-  padding: 2em;
+.labelWrapper {
+  font-size: 110px;
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  flex-shrink: 1;
+}
+.label {
+  color: #ffffff;
+  font-size: 80px;
+  line-height: 93%;
+  font-weight: 500;
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.06em;
+}
+.label2 {
+  background-image: linear-gradient(90deg, #017fe0ff 0%, #badaf3ff 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 70px;
+  line-height: 93%;
+  font-weight: 400;
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.06em;
+}
+.label3 {
+  color: #ffffff;
+  font-size: 80px;
+  line-height: 93%;
+  font-weight: 600;
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.06em;
 }
 
-.read-the-docs {
-  color: #888;
+.footer {
+  width: 100%;
+  padding: 5px 0;
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1em;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #0056b3;
 }
