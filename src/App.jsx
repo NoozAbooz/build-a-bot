@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { supabase } from './supabaseClient'
-
 import Leaderboard from './leaderboard/leaderboard'
-import './App.css'
 
+import './App.css'
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
 
       <footer className="footer">
         <p>
-          © 2024 Western Mechatronics. Made with 💖 by 
+          © 2024 Western Mechatronics Robotics Club. Made with 💖 by 
           <a href="https://github.com/NoozAbooz/build-a-bot" target="_blank" rel="noopener noreferrer"> Nooz</a>
         </p>
       </footer>

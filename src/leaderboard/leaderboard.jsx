@@ -31,7 +31,7 @@ const Leaderboard = () => {
       console.error(error);
     } else {
       setData(data);
-      console.log(data);
+      //console.log(data);
     }
   };
 
