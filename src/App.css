@@ -1,120 +1,99 @@
-#root {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding is included in the total width and height */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #333; /* Background color for the entire page */
+  overflow: auto; /* Allow scrolling */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.header {
+.container {
+  width: 100vw;  /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 2em;
-  position: fixed;
-  top: 0;
-  left: 25%;
+  flex-direction: column; /* Arrange children in a column */
+  justify-content: space-between; /* Space between top and bottom elements */
+  align-items: center; /* Center content horizontally */
+  padding-top: 20px; /* Padding at the top for spacing */
+  background-color: #333; /* Background color */
+  position: relative;
 }
 
-.labelWrapper {
-  font-size: 110px;
-  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  flex-shrink: 1;
+.text-container {
+  text-align: center; /* Center-align text within the container */
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  z-index: 2; /* Ensure it stays above other elements */
 }
-.label {
-  color: #ffffff;
-  font-size: 80px;
-  line-height: 93%;
-  font-weight: 500;
-  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: -0.06em;
+
+.title-text {
+  display: block; /* Ensure it takes a new line */
+  font-size: 2em; /* Increase font size */
+  color: #ffffff; /* Text color for "Calgary Stampede" */
+  margin-bottom: 10px; /* Space between title and subtitle */
+  font-weight: 500; /* Font weight for "Calgary Stampede" */
 }
-.label2 {
-  background-image: linear-gradient(90deg, #017fe0ff 0%, #badaf3ff 100%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 70px;
-  line-height: 93%;
-  font-weight: 400;
-  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: -0.06em;
-}
-.label3 {
-  color: #ffffff;
-  font-size: 80px;
-  line-height: 93%;
-  font-weight: 600;
-  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-  letter-spacing: -0.06em;
+
+.subtitle-text {
+  display: block; /* Ensure it takes a new line */
+  font-size: 2.5em; /* Larger font size for "Build-a-Bot" */
+  background: linear-gradient(to right, #017fe0ff, #badaf3); /* Gradient background */
+  -webkit-background-clip: text; /* Use background clip for text */
+  -webkit-text-fill-color: transparent; /* Make text fill transparent to show gradient */
+  font-weight: 400; /* Font weight for "Build-a-Bot" */
+  margin-bottom: -0.5em; /* mobileonly Add some space between subtitle and leaderboard */
 }
 
 .footer {
-  width: 100%;
-  padding: 5px 0;
-  background-color: #333;
-  text-align: center;
-  color: #fff;
-  position: fixed;
+  width: 100%; /* Full width of the container */
+  padding: 10px 0; /* Padding for better visual appearance */
+  background-color: #444; /* Slightly lighter background color */
+  text-align: center; /* Center-align text */
+  font-family: Heebo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  font-weight: 500; /* Increased font weight for footer text */
+  position: sticky;
   bottom: 0;
-  left: 0;
+  z-index: 3; /* Ensure it stays above other elements */
 }
 
 .footer p {
-  margin: 0;
-  font-size: 1em;
+  color: #fff; /* Text color for footer */
+  font-size: 0.9em; /* Slightly smaller font size */
+  margin: 0; /* Reset margin for footer text */
 }
 
 .footer a {
-  color: #007bff;
-  text-decoration: none;
+  color: #017fe0ff; /* Initial link color */
+  text-decoration: none; /* Remove underline */
+  margin-left: 5px; /* Space before link */
+  font-weight: 700; /* Increased font weight for the link */
 }
 
 .footer a:hover {
-  color: #0056b3;
+  color: #badaf3ff; /* Link color on hover */
 }
 
-@media (max-width: 600px) {
-  .footer {
-    width: 100%;
-    padding: 5px 0;
-    background-color: #333;
-    text-align: center;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    left: 20px;
+/* For desktop ONLY changes: */
+@media only screen and (min-width: 768px) {
+  .title-text {
+    display: block; /* Ensure it takes a new line */
+    font-size: 5em; /* Increase font size */
+    color: #ffffff; /* Text color for "Calgary Stampede" */
+    margin-bottom: 10px; /* Space between title and subtitle */
+    font-weight: 500; /* Font weight for "Calgary Stampede" */
   }
-  .footer p {
-    margin: 0;
-    font-size: 0.6em;
+
+  .subtitle-text {
+    display: block; /* Ensure it takes a new line */
+    font-size: 6em; /* Larger font size for "Build-a-Bot" */
+    background: linear-gradient(to right, #017fe0ff, #badaf3ff); /* Gradient background */
+    -webkit-background-clip: text; /* Use background clip for text */
+    -webkit-text-fill-color: transparent; /* Make text fill transparent to show gradient */
+    font-weight: 400; /* Font weight for "Build-a-Bot" */
+    /* margin-bottom: -25em; /* Add some space between subtitle and leaderboard */
   }
 }

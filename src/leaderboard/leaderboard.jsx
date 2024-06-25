@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 
 import './leaderboard.css';
+import { MobileOnlyView } from 'react-device-detect';
 
 const Leaderboard = () => {
   const [data, setData] = useState([]);
@@ -82,15 +83,19 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
 
   return (
     <div className="leaderboard">
-      <h1>Leaderboard</h1>
-      <div className="controls">
-        <button onClick={() => handleSort('score')}>
-          Sort by Score {sortField === 'score' && (sortOrder === 'asc' ? '↑' : '↓')}
-        </button>
-        <button onClick={() => handleSort('timestamp')}>
-          Sort by Date {sortField === 'timestamp' && (sortOrder === 'asc' ? '↑' : '↓')}
-        </button>
+      <div className="leaderboard-title">
+        <h1>Leaderboard</h1>
       </div>
+      <MobileOnlyView>
+        <div className="controls">
+          <button onClick={() => handleSort('score')}>
+            Sort by Score {sortField === 'score' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </button>
+          <button onClick={() => handleSort('timestamp')}>
+            Sort by Date {sortField === 'timestamp' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </button>
+        </div>
+      </MobileOnlyView>
       <table>
         <thead>
           <tr>

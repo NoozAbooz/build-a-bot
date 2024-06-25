@@ -1,8 +1,7 @@
-/* Leaderboard.css */
+/* Mobile-first styles */
 .leaderboard {
-  width: 940px;
-  height: 800px;
-  margin: 50px auto;
+  width: 100%;
+  margin: 20px 0;
   text-align: center;
   font-family: 'Arial', sans-serif;
   background-color: #333;
@@ -10,14 +9,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
   color: #fff;
-  position: relative;
-  top: -12em;
+  z-index: 1; /* Ensure it doesn't cover the text-container */
 }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 40px;
-  color: #fff;
+.leaderboard-title {
+  font-size: 0.5em;
+  margin-bottom: 20px;
 }
 
 .controls {
@@ -58,12 +55,12 @@ table {
   border-radius: 12px;
   overflow: hidden;
   color: #fff;
-  font-weight: bold ;
+  font-weight: bold;
 }
 
 th,
 td {
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   border-bottom: 1px solid #555;
 }
@@ -82,42 +79,6 @@ tbody tr:hover {
 }
 
 tbody tr.first-place {
-  font-size: 3em;
-  background-color: #ffdf00;
-  font-weight: bold;
-  color: #333;
-}
-
-tbody tr.second-place {
-  font-size: 2em;
-  background-color: #c0c0c0;
-  font-weight: bold;
-  color: #333;
-}
-
-tbody tr.third-place {
-  font-size: 1.5em;
-  background-color: #cd7f32;
-  font-weight: bold;
-  color: #333;
-}
-
-@media (max-width: 600px) {
-  .leaderboard {
-    width: 100%;
-    height: 100%;
-    margin: 50px auto;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    background-color: #333;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    color: #fff;
-    position: relative;
-    top: -12em;
-  }
-  tbody tr.first-place {
   font-size: 2em;
   background-color: #ffdf00;
   font-weight: bold;
@@ -137,4 +98,36 @@ tbody tr.third-place {
   font-weight: bold;
   color: #333;
 }
+
+@media (min-width: 1024px) {
+  .leaderboard {
+    width: 90%;
+    margin: 50px auto;
+    margin-top: -10em;
+    padding: 20px;
+    font-size: 1.5em;
+    position: fixed; /* Ensure it's below text-container */
+    top: 23.5em;
+  }
+
+  .leaderboard-title {
+    font-size: 0.75em;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+
+  tbody tr.first-place {
+    font-size: 2.5em;
+  }
+
+  tbody tr.second-place {
+    font-size: 2em;
+  }
+
+  tbody tr.third-place {
+    font-size: 1.5em;
+  }
 }
