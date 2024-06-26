@@ -116,7 +116,7 @@ const App = () => {
               <input
                 type="number"
                 value={score}
-                // readOnly / dont readyonly, allow mods if necessary
+                readOnly
               />
             </label>
           </div>
