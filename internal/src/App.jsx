@@ -17,7 +17,7 @@ const App = () => {
   const [parkCount, setParkCount] = useState(0);
 
   useEffect(() => {
-    const totalScore = (1 * cropCount) + (4 * baleCount) + parkCount;
+    const totalScore = cropCount + baleCount + parkCount;
     setScore(totalScore);
   }, [cropCount, baleCount, parkCount]);
 
