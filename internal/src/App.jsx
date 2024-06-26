@@ -9,6 +9,7 @@ const App = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState('');
+  const [statusType, setStatusType] = useState(''); // 'success' or 'error'
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -37,9 +38,11 @@ const App = () => {
 
     if (prodError || internalError) {
       setStatus('Submission failed. Please try again.');
+      setStatusType('error');
       console.error(internalError || prodError);
     } else {
       setStatus('Submission successful!');
+      setStatusType('success');
       setName('');
       setScore('');
       setAge('');
@@ -47,8 +50,8 @@ const App = () => {
       setPhone('');
     }
     setIsSubmitting(false);
-    // Clear status message after 5 seconds
-    setTimeout(() => setStatus(''), 5000);
+    // Clear status message after n seconds
+    setTimeout(() => setStatus(''), 8000);
   };
 
   return (
@@ -57,7 +60,7 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Name:
+            Name: <span className="required">*</span>
             <input
               type="text"
               value={name}
@@ -68,7 +71,7 @@ const App = () => {
         </div>
         <div>
           <label>
-            Score:
+            Score (only integers): <span className="required">*</span>
             <input
               type="number"
               value={score}
@@ -109,7 +112,7 @@ const App = () => {
         </div>
         <button type="submit" disabled={isSubmitting}>Submit</button>
       </form>
-      {status && <p className={`status-message ${status ? 'fade-out' : ''}`}>{status}</p>}
+      {status && <p className={`status-message ${status ? 'fade-out' : ''} ${statusType}`}>{status}</p>}
     </div>
   );
 };

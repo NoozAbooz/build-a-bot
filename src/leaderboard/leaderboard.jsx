@@ -73,6 +73,9 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
 
   const sortedData = [...data].sort((a, b) => {
     if (sortField === 'score') {
+      if (b.score === a.score) {
+        return new Date(a.timestamp) - new Date(b.timestamp); // Compare by timestamp if scores are equal
+      }
       return sortOrder === 'asc' ? a.score - b.score : b.score - a.score;
     }
     if (sortField === 'timestamp') {
@@ -109,7 +112,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
             <tr key={row.id} className={getRowClass(index)}>
               <td>{row.name}</td>
               <td>{row.score}</td>
-              <td>{new Date(row.date).toLocaleDateString()}</td>
+              <td>{new Date(row.timestamp).toLocaleDateString()}</td>
             </tr>
           ))}
         </tbody>

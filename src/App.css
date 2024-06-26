@@ -96,4 +96,29 @@ html, body {
     font-weight: 400; /* Font weight for "Build-a-Bot" */
     /* margin-bottom: -25em; /* Add some space between subtitle and leaderboard */
   }
+
+  /* Title container styles */
+  .title-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Logo styles */
+  .logo1 {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-left: 2em; /* Space from the left */
+    margin-right: 20px; /* Space from the right */
+    margin-top: 1em;;
+  }
+  .logo2 {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-left: 2em; /* Space from the left */
+    margin-right: 20px; /* Space from the right */
+    margin-top: 1em;;
+  }
 }

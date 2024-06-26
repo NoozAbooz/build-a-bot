@@ -5,12 +5,25 @@ import Leaderboard from './leaderboard/leaderboard'
 
 import './App.css'
 
+import logo1 from './assets/logo1.png'
+import logo2 from './assets/logo2.png'
+
 function App() {
   return (
     <div className="container">
-      <div className="text-container">
-        <span className="title-text">Calgary Stampede</span>
-        <span className="subtitle-text">Build-a-Bot</span>
+      <div className="title-container">
+        <BrowserView>
+          <img src={logo1} alt="Logo 1" className="logo1" />
+        </BrowserView>
+
+        <div className="text-container">
+          <span className="title-text">Calgary Stampede</span>
+          <span className="subtitle-text">Build-a-Bot</span>
+        </div>
+
+        <BrowserView>
+        <img src={logo2} alt="Logo 2" className="logo2" />
+        </BrowserView>
       </div>
 
       <Leaderboard />
