@@ -13,7 +13,7 @@
 }
 
 .leaderboard-title {
-  font-size: 0.5em;
+  font-size: 0.75em;
   margin-bottom: 20px;
 }
 
@@ -107,7 +107,7 @@ tbody tr.third-place {
     padding: 20px;
     font-size: 1.5em;
     position: fixed; /* Ensure it's below text-container */
-    top: 23.5em;
+    top: 22em;
   }
 
   .leaderboard-title {
