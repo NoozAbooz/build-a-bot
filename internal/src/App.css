@@ -119,7 +119,7 @@ html, body {
   justify-content: space-between;
   align-items: center;
   width: 220px; /* Increased width to make it bigger */
-  height: 300px; /* Increased height to make it bigger */
+  height: 9em; /* Increased height to make it bigger */
   color: #fff;
   font-size: 2em; /* Adjust font size */
   margin-bottom: 20px; /* Increase space between squares */
