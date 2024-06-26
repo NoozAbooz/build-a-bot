@@ -1,4 +1,4 @@
-/* App.css */
+/* General styles */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,36 +6,46 @@ html, body {
   background-color: #222;
   color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the app container */
   align-items: center;
   height: 100vh;
-  width: 100vw; /* Ensures the body takes up the full viewport width */
+  width: 100vw;
   box-sizing: border-box;
+  padding: 20px; /* Add padding to the viewport */
 }
 
 * {
-  box-sizing: inherit; /* Inherits box-sizing to all elements */
+  box-sizing: inherit;
 }
 
+.app-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Container styles */
 .volunteer-score-submission {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90vw; /* Use vw (viewport width) to ensure it takes up 90% of the viewport width */
+  width: 60vw; /* Adjusted to 60% of the viewport width */
   padding: 20px;
   background-color: #333;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  height: 90vh; /* Ensures the height is 80% of the viewport height */
+  height: 75vh; /* 75% of the viewport height */
 }
 
+/* Title styles */
 .volunteer-score-submission h1 {
   text-align: center;
-  margin-bottom: 50px;
-  font-size: 4em;
+  margin-bottom: 20px;
+  font-size: 2.5em; /* Adjust font size */
 }
 
+/* Form styles */
 .volunteer-score-submission form {
   display: flex;
   flex-direction: column;
@@ -46,7 +56,7 @@ html, body {
 
 .volunteer-score-submission label {
   margin-bottom: 10px;
-  font-size: 2.5em;
+  font-size: 1.5em; /* Adjust label font size */
 }
 
 .volunteer-score-submission input {
@@ -58,7 +68,6 @@ html, body {
   margin-bottom: 20px;
   font-size: 1em;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .volunteer-score-submission .required {
@@ -72,7 +81,7 @@ html, body {
   border: none;
   background-color: #007bff;
   color: white;
-  font-size: 3em;
+  font-size: 2em; /* Adjust font size */
   cursor: pointer;
   width: 100%;
 }
@@ -92,4 +101,61 @@ html, body {
 
 .status-message.error {
   color: #f44336; /* Red color for error */
+}
+
+/* Square container styles */
+.square-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 75vh; /* Match the height of the form container */
+  margin-left: 20px; /* Add padding to the left */
+}
+
+.square {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px; /* Increased width to make it bigger */
+  height: 300px; /* Increased height to make it bigger */
+  color: #fff;
+  font-size: 2em; /* Adjust font size */
+  margin-bottom: 20px; /* Increase space between squares */
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.square button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  font-size: 1.2em; /* Adjust font size */
+  cursor: pointer;
+  padding: 8px 6px; /* Adjust padding */
+  border-radius: 5px;
+  margin-top: 10px; /* Add margin to separate buttons */
+}
+
+.square .button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; /* Add more space between text and buttons */
+}
+
+.square.green {
+  background-color: green;
+}
+
+.square.purple {
+  background-color: purple;
+}
+
+.square.yellow {
+  background-color: darkgoldenrod;
+  align-items: center; /* Center align text and buttons */
+  justify-content: space-around;
 }

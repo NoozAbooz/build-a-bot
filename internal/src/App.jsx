@@ -1,16 +1,25 @@
-import { useState } from 'react'
-import { supabase } from './supabaseClient'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { supabase } from './supabaseClient';
+import './App.css';
 
 const App = () => {
   const [name, setName] = useState('');
-  const [score, setScore] = useState('');
+  const [score, setScore] = useState(0);
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState('');
   const [statusType, setStatusType] = useState(''); // 'success' or 'error'
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [cropCount, setCropCount] = useState(0);
+  const [baleCount, setBaleCount] = useState(0);
+  const [parkCount, setParkCount] = useState(0);
+
+  useEffect(() => {
+    const totalScore = (1 * cropCount) + (4 * baleCount) + parkCount;
+    setScore(totalScore);
+  }, [cropCount, baleCount, parkCount]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +30,7 @@ const App = () => {
       score,
       age: age || null,
       email: email || null,
-      phone: phone || null
+      phone: phone || null,
     };
 
     console.log(dataToInsert);
@@ -44,75 +53,129 @@ const App = () => {
       setStatus('Submission successful!');
       setStatusType('success');
       setName('');
-      setScore('');
+      setScore(0);
       setAge('');
       setEmail('');
       setPhone('');
+      setCropCount(0);
+      setBaleCount(0);
+      setParkCount(0);
     }
     setIsSubmitting(false);
     // Clear status message after n seconds
     setTimeout(() => setStatus(''), 8000);
   };
 
+  const incrementCropCount = () => {
+    if (cropCount < 18) {
+      setCropCount(cropCount + 1);
+    }
+  };
+
+  const decrementCropCount = () => {
+    if (cropCount > 0) {
+      setCropCount(cropCount - 1);
+    }
+  };
+
+  const incrementBaleCount = () => {
+    if (baleCount < 5) {
+      setBaleCount(baleCount + 1);
+    }
+  };
+
+  const decrementBaleCount = () => {
+    if (baleCount > 0) {
+      setBaleCount(baleCount - 1);
+    }
+  };
+
+  const setParkCountValue = (value) => {
+    setParkCount(value);
+  };
+
   return (
-    <div className="volunteer-score-submission">
-      <h1>Score Submission</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Name: <span className="required">*</span>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </label>
+    <div className="app-container">
+      <div className="volunteer-score-submission">
+        <h1>Score Submission</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Name: <span className="required">*</span>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Score: <span className="required">*</span>
+              <input
+                type="number"
+                value={score}
+                // readOnly / dont readyonly, allow mods if necessary
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Age (Optional):
+              <input
+                type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email (Optional):
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Phone Number (Optional):
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </label>
+          </div>
+          <button type="submit" disabled={isSubmitting}>Submit</button>
+        </form>
+        {status && <p className={`status-message ${statusType}`}>{status}</p>}
+      </div>
+      <div className="square-container">
+        <div className="square green">
+          <button onClick={incrementCropCount}>+</button>
+          <span>Crop</span>
+          <span>{cropCount}</span>
+          <button onClick={decrementCropCount}>-</button>
         </div>
-        <div>
-          <label>
-            Score (only integers): <span className="required">*</span>
-            <input
-              type="number"
-              value={score}
-              onChange={(e) => setScore(e.target.value)}
-              required
-            />
-          </label>
+        <div className="square purple">
+          <button onClick={incrementBaleCount}>+</button>
+          <span>Bale</span>
+          <span>{baleCount}</span>
+          <button onClick={decrementBaleCount}>-</button>
         </div>
-        <div>
-          <label>
-            Age (Optional):
-            <input
-              type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            />
-          </label>
+        <div className="square yellow">
+          <span>Park</span>
+          <div className="button-group">
+            <button onClick={() => setParkCountValue(1)}>Partial</button>
+            <button onClick={() => setParkCountValue(4)}>Full</button>
+            <button onClick={() => setParkCountValue(0)}>Reset</button>
+          </div>
         </div>
-        <div>
-          <label>
-            Email (Optional):
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Phone Number (Optional):
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit" disabled={isSubmitting}>Submit</button>
-      </form>
-      {status && <p className={`status-message ${status ? 'fade-out' : ''} ${statusType}`}>{status}</p>}
+      </div>
     </div>
   );
 };
