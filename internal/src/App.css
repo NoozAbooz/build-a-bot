@@ -109,7 +109,7 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 75vh; /* Match the height of the form container */
+  height: 75%; /* Match the height of the form container */
   margin-left: 20px; /* Add padding to the left */
 }
 
