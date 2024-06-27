@@ -124,22 +124,22 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>
+              Score: <span className="required">*</span>
+              <input
+                type="number"
+                value={score}
+                readOnly
+              />
+            </label>
+          </div>
+          <div>
+            <label>
               Name: <span className="required">*</span>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Score: <span className="required">*</span>
-              <input
-                type="number"
-                value={score}
-                readOnly
               />
             </label>
           </div>
