@@ -16,7 +16,7 @@ const Leaderboard = () => {
 
   const fetchData = async () => { // fetch data from DB and set it to state
     let query = supabase
-      .from('test') // Change this to your table name 
+      .from('prod') // Change this to your table name 
       .select('*');
 
     if (filter) {

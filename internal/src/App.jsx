@@ -39,12 +39,12 @@ const App = () => {
 
     console.log(dataToInsert);
 
-    const { data: prodData, error: internalError } = await supabase
-      .from('test-internal')
+    const { data: prodInternalData, error: internalError } = await supabase
+      .from('prod-internal')
       .insert([dataToInsert]);
 
-    const { data: testData, error: prodError } = await supabase
-      .from('test')
+    const { data: prodData, error: prodError } = await supabase
+      .from('prod')
       .insert([{ name, score }]);
 
     if (prodError || internalError) {
