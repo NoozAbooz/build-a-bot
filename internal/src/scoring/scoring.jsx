@@ -16,7 +16,7 @@ const ScoringMenu = ({
     <div className="square-container">
       <div className="square green">
         <button onClick={incrementCropCount}>+</button>
-        <span>Crop</span>
+        <span>Crop (1pt)</span>
         <span>{cropCount}</span>
         <button onClick={decrementCropCount}>-</button>
 		<div className="button-group">
@@ -25,7 +25,7 @@ const ScoringMenu = ({
       </div>
       <div className="square purple">
         <button onClick={incrementBaleCount}>+</button>
-        <span>Hay Bale</span>
+        <span>Hay Bale (4pt)</span>
         <span>{baleCount}</span>
         <button onClick={decrementBaleCount}>-</button>
       </div>
