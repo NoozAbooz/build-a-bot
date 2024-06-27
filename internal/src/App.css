@@ -6,12 +6,12 @@ html, body {
   background-color: #222;
   color: #fff;
   display: flex;
-  justify-content: center; /* Center the app container */
+  justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
-  padding: 20px; /* Add padding to the viewport */
+  padding: 20px;
 }
 
 * {
@@ -22,6 +22,7 @@ html, body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  position: relative; /* Add relative positioning */
 }
 
 /* Container styles */
@@ -30,19 +31,19 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 60vw; /* Adjusted to 60% of the viewport width */
+  width: 90vw;
   padding: 20px;
   background-color: #333;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  height: 75vh; /* 75% of the viewport height */
+  height: 75vh;
 }
 
 /* Title styles */
 .volunteer-score-submission h1 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 2.5em; /* Adjust font size */
+  font-size: 2.5em;
 }
 
 /* Form styles */
@@ -56,7 +57,7 @@ html, body {
 
 .volunteer-score-submission label {
   margin-bottom: 10px;
-  font-size: 1.5em; /* Adjust label font size */
+  font-size: 1.5em;
 }
 
 .volunteer-score-submission input {
@@ -81,7 +82,7 @@ html, body {
   border: none;
   background-color: #007bff;
   color: white;
-  font-size: 2em; /* Adjust font size */
+  font-size: 2em;
   cursor: pointer;
   width: 100%;
 }
@@ -96,66 +97,39 @@ html, body {
 }
 
 .status-message.success {
-  color: #4caf50; /* Green color for success */
+  color: #4caf50;
 }
 
 .status-message.error {
-  color: #f44336; /* Red color for error */
+  color: #f44336;
 }
 
-/* Square container styles */
-.square-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 75vh; /* Match the height of the form container */
-  margin-left: 20px; /* Add padding to the left */
-}
-
-.square {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 220px; /* Increased width to make it bigger */
-  height: 300px; /* Increased height to 300px */
-  color: #fff;
-  font-size: 2em; /* Adjust font size */
-  margin-bottom: 20px; /* Increase space between squares */
-  border-radius: 12px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.square button {
-  background-color: #444;
-  color: #fff;
-  border: none;
-  font-size: 1.2em; /* Adjust font size */
+/* Hamburger menu styles */
+.hamburger-menu {
+  font-size: 2em;
   cursor: pointer;
-  padding: 8px 16px; /* Adjust padding */
-  border-radius: 5px;
-  margin-top: 10px; /* Add margin to separate buttons */
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-.square .button-group {
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 10px; /* Add more space between text and buttons */
+  z-index: 1000;
 }
 
-.square.green {
-  background-color: green;
-}
-
-.square.purple {
-  background-color: purple;
-}
-
-.square.yellow {
-  background-color: darkgoldenrod;
-  align-items: center; /* Center align text and buttons */
-  justify-content: space-around;
+.overlay-content {
+  background-color: #333;
+  padding: 3em;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }

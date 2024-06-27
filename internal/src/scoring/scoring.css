@@ -1,0 +1,63 @@
+/* Square container styles */
+.square-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 20em;
+}
+
+.square {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 10em;
+  height: 12em;
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.square button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.square .button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.square.green {
+  background-color: green;
+}
+
+.bonus-button {
+  margin-top: 20px;
+}
+
+.bonus-button.toggled {
+  background-color: #1edce2;
+}
+
+.square.purple {
+  background-color: purple;
+}
+
+.square.yellow {
+  background-color: darkgoldenrod;
+  align-items: center;
+  justify-content: space-around;
+}
