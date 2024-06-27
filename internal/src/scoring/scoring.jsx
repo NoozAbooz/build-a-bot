@@ -3,9 +3,9 @@ import './scoring.css';
 
 const ScoringMenu = ({
   cropCount, incrementCropCount, decrementCropCount, toggleBonus, bonusToggled,
-  baleCount, incrementBaleCount, decrementBaleCount, parkCount, setParkCountValue
+  baleCount, incrementBaleCount, decrementBaleCount, parkCount, setParkCountValue,
+  toggledButton, setToggledButton
 }) => {
-  const [toggledButton, setToggledButton] = useState('');
 
   const handleParkButtonClick = (value, button) => {
     setParkCountValue(value);

@@ -19,6 +19,7 @@ const App = () => {
   const [bonusToggled, setBonusToggled] = useState(false);
 
   const [menuVisible, setMenuVisible] = useState(false);
+  const [toggledButton, setToggledButton] = useState('');
 
   useEffect(() => {
     const totalScore = cropCount + (baleCount * 4) + parkCount;
@@ -63,6 +64,7 @@ const App = () => {
       setBaleCount(0);
       setParkCount(0);
       setBonusToggled(false);
+      setToggledButton('');
     }
     setIsSubmitting(false);
     setTimeout(() => setStatus(''), 8000);
@@ -192,6 +194,8 @@ const App = () => {
               decrementBaleCount={decrementBaleCount}
               parkCount={parkCount}
               setParkCountValue={setParkCountValue}
+              toggledButton={toggledButton}
+              setToggledButton={setToggledButton}
             />
           </div>
         </div>
