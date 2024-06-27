@@ -40,16 +40,16 @@
   margin-top: 10px;
 }
 
+.square button.toggled {
+  background-color: #1edce2; /* Add toggled background color */
+}
+
 .square.green {
   background-color: green;
 }
 
 .bonus-button {
   margin-top: 20px;
-}
-
-.bonus-button.toggled {
-  background-color: #1edce2;
 }
 
 .square.purple {

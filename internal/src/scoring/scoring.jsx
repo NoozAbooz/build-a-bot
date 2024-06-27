@@ -1,10 +1,17 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './scoring.css';
 
 const ScoringMenu = ({
   cropCount, incrementCropCount, decrementCropCount, toggleBonus, bonusToggled,
   baleCount, incrementBaleCount, decrementBaleCount, parkCount, setParkCountValue
 }) => {
+  const [toggledButton, setToggledButton] = useState('');
+
+  const handleParkButtonClick = (value, button) => {
+    setParkCountValue(value);
+    setToggledButton(button);
+  };
+
   return (
     <div className="square-container">
       <div className="square green">
@@ -12,10 +19,12 @@ const ScoringMenu = ({
         <span>Crop</span>
         <span>{cropCount}</span>
         <button onClick={decrementCropCount}>-</button>
-        <button className={`bonus-button ${bonusToggled ? 'toggled' : ''}`} onClick={toggleBonus}>Bonus +5pt</button>
+		<div className="button-group">
+          <button className={`${bonusToggled ? 'toggled' : ''}`} onClick={toggleBonus}>Bonus +5pt</button>
+		</div>
       </div>
       <div className="square purple">
-        <button onClick={incrementBaleCount}>+</button>
+        <button onClick={incrementBaleCount}>+ (4pt)</button>
         <span>Hay Bale</span>
         <span>{baleCount}</span>
         <button onClick={decrementBaleCount}>-</button>
@@ -23,9 +32,23 @@ const ScoringMenu = ({
       <div className="square yellow">
         <span>Park</span>
         <div className="button-group">
-          <button onClick={() => setParkCountValue(2)}>Partial +2pt</button>
-          <button onClick={() => setParkCountValue(5)}>Full +5pt</button>
-          <button onClick={() => setParkCountValue(0)}>Reset</button>
+		  <button
+            className={toggledButton === 'partial' ? 'toggled' : ''}
+            onClick={() => handleParkButtonClick(2, 'partial')}
+          >
+            Partial +2pt
+          </button>
+          <button
+            className={toggledButton === 'full' ? 'toggled' : ''}
+            onClick={() => handleParkButtonClick(5, 'full')}
+          >
+            Full +5pt
+          </button>
+          <button
+            onClick={() => handleParkButtonClick(0, '')}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </div>
