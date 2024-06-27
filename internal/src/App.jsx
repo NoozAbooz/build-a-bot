@@ -176,7 +176,7 @@ const App = () => {
         {status && <p className={`status-message ${statusType}`}>{status}</p>}
       </div>
       <div className="hamburger-menu" onClick={() => setMenuVisible(!menuVisible)}>
-        &#9776; Scoring
+        &#9776; Score
       </div>
       {menuVisible && (
         <div className="overlay" onClick={handleOverlayClick}>
