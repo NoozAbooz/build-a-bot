@@ -26,11 +26,10 @@
   background-color: #444;
   color: #fff;
   border: none;
-  font-size: 0.75em;
+  font-size: 0.70em;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 5px;
-  margin-top: 10px;
 }
 
 .square .button-group {
@@ -46,10 +45,6 @@
 
 .square.green {
   background-color: green;
-}
-
-.bonus-button {
-  margin-top: 20px;
 }
 
 .square.purple {
