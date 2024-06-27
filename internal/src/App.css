@@ -111,6 +111,8 @@ html, body {
   position: absolute;
   top: 20px;
   right: 20px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px rgb(24, 24, 24), 5px 5px 5px rgb(71, 71, 71) inset;
 }
 
 /* Overlay styles */
