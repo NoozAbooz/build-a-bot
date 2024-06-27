@@ -24,7 +24,7 @@ const ScoringMenu = ({
 		</div>
       </div>
       <div className="square purple">
-        <button onClick={incrementBaleCount}>+ (4pt)</button>
+        <button onClick={incrementBaleCount}>+</button>
         <span>Hay Bale</span>
         <span>{baleCount}</span>
         <button onClick={decrementBaleCount}>-</button>
