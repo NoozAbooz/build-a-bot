@@ -143,7 +143,7 @@ const App = () => {
               />
             </label>
           </div>
-          <div>
+{/* {          <div>
             <label>
               Age (Optional):
               <input
@@ -171,8 +171,8 @@ const App = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
-            </label>
-          </div>
+            </label>}
+          </div> */}
           <button type="submit" disabled={isSubmitting}>Submit</button>
         </form>
         {status && <p className={`status-message ${statusType}`}>{status}</p>}
