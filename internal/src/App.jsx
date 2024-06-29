@@ -16,15 +16,16 @@ const App = () => {
   const [cropCount, setCropCount] = useState(0);
   const [baleCount, setBaleCount] = useState(0);
   const [parkCount, setParkCount] = useState(0);
+  const [bonusCount, setBonusCount] = useState(0);
   const [bonusToggled, setBonusToggled] = useState(false);
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [toggledButton, setToggledButton] = useState('');
 
   useEffect(() => {
-    const totalScore = cropCount + (baleCount * 4) + parkCount;
+    const totalScore = cropCount + (baleCount * 4) + parkCount + bonusCount;
     setScore(totalScore);
-  }, [cropCount, baleCount, parkCount]);
+  }, [cropCount, baleCount, parkCount, bonusCount]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +41,10 @@ const App = () => {
 
     console.log(dataToInsert);
 
-    const { data: prodInternalData, error: internalError } = await supabase
-      .from('prod-internal')
-      .insert([dataToInsert]);
+    // disable internal DB
+    // const { data: prodInternalData, error: internalError } = await supabase 
+    //   .from('prod-internal')
+    //   .insert([dataToInsert]);
 
     const { data: prodData, error: prodError } = await supabase
       .from('prod')
@@ -63,6 +65,7 @@ const App = () => {
       setCropCount(0);
       setBaleCount(0);
       setParkCount(0);
+      setBonusCount(0);
       setBonusToggled(false);
       setToggledButton('');
     }
@@ -84,9 +87,9 @@ const App = () => {
 
   const toggleBonus = () => {
     if (bonusToggled) {
-      setCropCount(cropCount - 5);
+      setBonusCount(5);
     } else {
-      setCropCount(cropCount + 5);
+      setBonusCount(0);
     }
     setBonusToggled(!bonusToggled);
   };
