@@ -89,7 +89,7 @@ const App = () => {
     if (bonusToggled) {
       setBonusCount(-5);
     } else {
-      setBonusCount(5);
+      setBonusCount(0);
     }
     setBonusToggled(!bonusToggled);
   };
