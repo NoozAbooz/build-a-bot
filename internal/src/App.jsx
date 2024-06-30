@@ -16,16 +16,16 @@ const App = () => {
   const [cropCount, setCropCount] = useState(0);
   const [baleCount, setBaleCount] = useState(0);
   const [parkCount, setParkCount] = useState(0);
-  const [bonusCount, setBonusCount] = useState(0);
+  const [bonus, setBonus] = useState(0);
   const [bonusToggled, setBonusToggled] = useState(false);
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [toggledButton, setToggledButton] = useState('');
 
   useEffect(() => {
-    const totalScore = cropCount + (baleCount * 4) + parkCount + bonusCount;
+    const totalScore = cropCount + (baleCount * 4) + parkCount + bonus;
     setScore(totalScore);
-  }, [cropCount, baleCount, parkCount, bonusCount]);
+  }, [cropCount, baleCount, parkCount, bonus]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,9 +34,9 @@ const App = () => {
     const dataToInsert = {
       name,
       score,
-      age: age || null,
-      email: email || null,
-      phone: phone || null,
+      // age: age || null,
+      // email: email || null,
+      // phone: phone || null,
     };
 
     console.log(dataToInsert);
@@ -65,7 +65,7 @@ const App = () => {
       setCropCount(0);
       setBaleCount(0);
       setParkCount(0);
-      setBonusCount(0);
+      setBonus(0);
       setBonusToggled(false);
       setToggledButton('');
     }
@@ -87,9 +87,9 @@ const App = () => {
 
   const toggleBonus = () => {
     if (bonusToggled) {
-      setBonusCount(-5);
+      setBonus(0);
     } else {
-      setBonusCount(0);
+      setBonus(5);
     }
     setBonusToggled(!bonusToggled);
   };
