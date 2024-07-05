@@ -104,10 +104,10 @@ tbody tr.third-place {
     width: 90%;
     margin: 50px auto;
     margin-top: -10em;
-    padding: 20px;
+    padding: 0px;
     font-size: 1.5em;
     position: fixed; /* Ensure it's below text-container */
-    top: 22em;
+    top: 18em;
   }
 
   .leaderboard-title {
@@ -120,14 +120,14 @@ tbody tr.third-place {
   }
 
   tbody tr.first-place {
-    font-size: 2.5em;
+    font-size: 1.5em;
   }
 
   tbody tr.second-place {
-    font-size: 2em;
+    font-size: 1.25em;
   }
 
   tbody tr.third-place {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }

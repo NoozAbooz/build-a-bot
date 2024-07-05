@@ -81,7 +81,7 @@ html, body {
 @media only screen and (min-width: 768px) {
   .title-text {
     display: block; /* Ensure it takes a new line */
-    font-size: 5em; /* Increase font size */
+    font-size: 3em; /* Increase font size */
     color: #ffffff; /* Text color for "Calgary Stampede" */
     margin-bottom: 10px; /* Space between title and subtitle */
     font-weight: 500; /* Font weight for "Calgary Stampede" */
@@ -89,7 +89,7 @@ html, body {
 
   .subtitle-text {
     display: block; /* Ensure it takes a new line */
-    font-size: 6em; /* Larger font size for "Build-a-Bot" */
+    font-size: 3em; /* Larger font size for "Build-a-Bot" */
     background: linear-gradient(to right, #017fe0ff, #badaf3ff); /* Gradient background */
     -webkit-background-clip: text; /* Use background clip for text */
     -webkit-text-fill-color: transparent; /* Make text fill transparent to show gradient */
