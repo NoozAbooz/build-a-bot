@@ -53,7 +53,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: auto;
   color: #fff;
   font-weight: bold;
 }
