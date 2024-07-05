@@ -9,6 +9,7 @@ const Leaderboard = () => {
   const [filter, setFilter] = useState('');
   const [sortField, setSortField] = useState('score');
   const [sortOrder, setSortOrder] = useState('desc');
+  const [rowCount, setRowCount] = useState(0);
 
   useEffect(() => { // fetch data from supabase DB ONCE on initial render. dependency prevents further runs to conserve resources and my supabase billing 💀
     fetchData();
@@ -34,6 +35,13 @@ const Leaderboard = () => {
       setData(data);
       //console.log(data);
     }
+
+    // find how many rows there are
+    const { count } = await supabase
+      .from('prod')
+      .select('*', { count: 'exact' });
+
+    setRowCount(count);
   };
 
   const handleChanges = (payload) => { // wrapper to refetch ALL db data... todo - optimize to only fetch the changed row
@@ -88,6 +96,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
     <div className="leaderboard">
       <div className="leaderboard-title">
         <h1>Leaderboard</h1>
+        <h1>Robots Made: {rowCount}</h1>
       </div>
       <MobileOnlyView>
         <div className="controls">
