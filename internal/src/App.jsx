@@ -6,9 +6,6 @@ import './App.css';
 const App = () => {
   const [name, setName] = useState('');
   const [score, setScore] = useState(0);
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [status, setStatus] = useState('');
   const [statusType, setStatusType] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,26 +31,18 @@ const App = () => {
     const dataToInsert = {
       name,
       score,
-      // age: age || null,
-      // email: email || null,
-      // phone: phone || null,
     };
 
     console.log(dataToInsert);
-
-    // disable internal DB
-    // const { data: prodInternalData, error: internalError } = await supabase 
-    //   .from('prod-internal')
-    //   .insert([dataToInsert]);
 
     const { data: prodData, error: prodError } = await supabase
       .from('prod')
       .insert([{ name, score }]);
 
-    if (prodError || internalError) {
+    if (prodError) {
       setStatus('Submission failed. Please try again.');
       setStatusType('error');
-      console.error(internalError || prodError);
+      console.error(prodError);
     } else {
       setStatus('Submission successful!');
       setStatusType('success');
@@ -146,39 +135,10 @@ const App = () => {
               />
             </label>
           </div>
-{/* {          <div>
-            <label>
-              Age (Optional):
-              <input
-                type="number"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Email (Optional):
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Phone Number (Optional):
-              <input
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </label>}
-          </div> */}
           <button type="submit" disabled={isSubmitting}>Submit</button>
         </form>
-        {status && <p className={`status-message ${statusType}`}>{status}</p>}
+        {/* {status && <p className={`status-message ${statusType}`}>{status}</p>} */}
+        <p className={`status-message ${statusType}`}>{status}</p>
       </div>
       <div className="hamburger-menu" onClick={() => setMenuVisible(!menuVisible)}>
         &#9776; Score
