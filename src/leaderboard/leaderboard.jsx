@@ -111,6 +111,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
       <table>
         <thead>
           <tr>
+            <th>Rank</th>
             <th>Name</th>
             <th>Score</th>
             <th>Date</th>
@@ -119,6 +120,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
         <tbody>
           {sortedData.map((row, index) => (
             <tr key={row.id} className={getRowClass(index)}>
+              <td>{index + 1}</td>
               <td>{row.name}</td>
               <td>{row.score}</td>
               <td>{new Date(row.timestamp).toLocaleDateString()}</td>

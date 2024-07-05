@@ -79,21 +79,21 @@ tbody tr:hover {
 }
 
 tbody tr.first-place {
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #ffdf00;
   font-weight: bold;
   color: #333;
 }
 
 tbody tr.second-place {
-  font-size: 1.5em;
+  font-size: 1.25em;
   background-color: #c0c0c0;
   font-weight: bold;
   color: #333;
 }
 
 tbody tr.third-place {
-  font-size: 1.25em;
+  font-size: 1em;
   background-color: #cd7f32;
   font-weight: bold;
   color: #333;
