@@ -98,7 +98,6 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
         <h1>Leaderboard</h1>
         <h1>Robots Made: {rowCount}</h1>
       </div>
-      <MobileOnlyView>
         <div className="controls">
           <button onClick={() => handleSort('score')}>
             Sort by Score {sortField === 'score' && (sortOrder === 'asc' ? '↑' : '↓')}
@@ -107,7 +106,6 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
             Sort by Date {sortField === 'timestamp' && (sortOrder === 'asc' ? '↑' : '↓')}
           </button>
         </div>
-      </MobileOnlyView>
       <table>
         <thead>
           <tr>
