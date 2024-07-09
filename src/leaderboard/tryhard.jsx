@@ -82,7 +82,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
   const sortedData = [...data].sort((a, b) => {
     if (sortField === 'score') {
       if (b.score === a.score) {
-        return new Date(a.timestamp) - new Date(b.timestamp); // Compare by timestamp if scores are equal
+        return new Date(b.stop_time) - new Date(a.stop_time); // Compare by stop_time if scores are equal
       }
       return sortOrder === 'asc' ? a.score - b.score : b.score - a.score;
     }
