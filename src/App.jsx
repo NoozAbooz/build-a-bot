@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
 
 import Leaderboard from './leaderboard/leaderboard'
+import TryhardLeaderboard from './leaderboard/tryhard'
 
 import './App.css'
 
@@ -26,8 +33,13 @@ function App() {
         </BrowserView>
       </div>
 
-      <Leaderboard />
-      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Leaderboard />} />
+          <Route path="/vexacious" element={<TryhardLeaderboard />} />
+        </Routes>
+      </Router>
+
       <footer className="footer">
         <p>
           © 2024 Western Mechatronics Robotics Club. Made with 💖 by
