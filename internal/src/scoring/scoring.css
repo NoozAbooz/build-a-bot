@@ -32,30 +32,27 @@
   border-radius: 5px;
 }
 
-.square.button-group {
+.square .button-group {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 
-.square.lightgray {
-  background-color: lightgray;
+.square button.toggled {
+  background-color: #1edce2; /* Add toggled background color */
 }
 
 .square.green {
   background-color: green;
 }
 
-/*For toggeled buttons*/
-
-.square .button-group button.red {
-  background-color: red;
+.square.purple {
+  background-color: purple;
 }
 
-.square .button-group button.blue {
-  background-color: blue;
-}
-
-.square .button-group button.yellow {
+.square.yellow {
   background-color: darkgoldenrod;
+  align-items: center;
+  justify-content: space-around;
 }
