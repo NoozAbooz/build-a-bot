@@ -10,19 +10,18 @@ const App = () => {
   const [statusType, setStatusType] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [cropCount, setCropCount] = useState(0);
-  const [baleCount, setBaleCount] = useState(0);
-  const [parkCount, setParkCount] = useState(0);
-  const [bonus, setBonus] = useState(0);
-  const [bonusToggled, setBonusToggled] = useState(false);
+  const [chickenCount, setChickenCount] = useState(0);
+  const [cowCount, setCowCount] = useState(0);
+  const [clearPlotBonus, setClearPlot] = useState(false);
+  const [doorClosedBonus, setDoor] = useState(false);
+  const [parkBonus, setPark] = useState(false);
 
   const [menuVisible, setMenuVisible] = useState(false);
-  const [toggledButton, setToggledButton] = useState('');
 
   useEffect(() => {
-    const totalScore = cropCount + (baleCount * 4) + parkCount + bonus;
+    const totalScore = 10 * (chickenCount + cowCount + clearPlotBonus + doorClosedBonus + parkBonus);
     setScore(totalScore);
-  }, [cropCount, baleCount, parkCount, bonus]);
+  }, [chickenCount, cowCount, clearPlotBonus, doorClosedBonus, parkBonus]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,52 +50,51 @@ const App = () => {
       setAge('');
       setEmail('');
       setPhone('');
-      setCropCount(0);
-      setBaleCount(0);
-      setParkCount(0);
-      setBonus(0);
-      setBonusToggled(false);
+      setChickenCount(0);
+      setCowCount(0);
+      setClearPlot(false);
+      setDoor(false);
+      setPark(false);
       setToggledButton('');
     }
     setIsSubmitting(false);
     setTimeout(() => setStatus(''), 8000);
   };
 
-  const incrementCropCount = () => {
-    if (cropCount < 18) {
-      setCropCount(cropCount + 1);
+  const incrementChickenCount = () => {
+    if (chickenCount < 4) {
+      setChickenCount(chickenCount + 1);
     }
   };
 
-  const decrementCropCount = () => {
-    if (cropCount > 0) {
-      setCropCount(cropCount - 1);
+  const decrementChickenCount = () => {
+    if (chickenCount > 0) {
+      setChickenCount(chickenCount - 1);
     }
   };
 
-  const toggleBonus = () => {
-    if (bonusToggled) {
-      setBonus(0);
-    } else {
-      setBonus(5);
-    }
-    setBonusToggled(!bonusToggled);
-  };
-
-  const incrementBaleCount = () => {
-    if (baleCount < 5) {
-      setBaleCount(baleCount + 1);
+  const incrementCowCount = () => {
+    if (cowCount < 10) {
+      setCowCount(cowCount + 1);
     }
   };
 
-  const decrementBaleCount = () => {
-    if (baleCount > 0) {
-      setBaleCount(baleCount - 1);
+  const decrementCowCount = () => {
+    if (cowCount > 0) {
+      setCowCount(cowCount - 1);
     }
   };
 
-  const setParkCountValue = (value) => {
-    setParkCount(value);
+  const togglePlotBonus = () => {
+    setClearPlot(!clearPlotBonus);
+  };
+
+  const toggleDoorBonus = () => {
+    setDoor(!doorClosedBonus);
+  };
+
+  const toggleParkBonus = () => {
+    setPark(!parkBonus);
   };
 
   const closeMenu = () => {
@@ -147,18 +145,18 @@ const App = () => {
         <div className="overlay" onClick={handleOverlayClick}>
           <div className="overlay-content">
             <ScoringMenu
-              cropCount={cropCount}
-              incrementCropCount={incrementCropCount}
-              decrementCropCount={decrementCropCount}
-              toggleBonus={toggleBonus}
-              bonusToggled={bonusToggled}
-              baleCount={baleCount}
-              incrementBaleCount={incrementBaleCount}
-              decrementBaleCount={decrementBaleCount}
-              parkCount={parkCount}
-              setParkCountValue={setParkCountValue}
-              toggledButton={toggledButton}
-              setToggledButton={setToggledButton}
+              incrementChickenCount={incrementChickenCount}
+              decrementChickenCount={decrementChickenCount}
+              incrementCowCount={incrementCowCount}
+              decrementCowCount={decrementCowCount}
+              cowCount={cowCount}
+              chickenCount={chickenCount}
+              togglePlotBonus={togglePlotBonus}
+              toggleDoorBonus={toggleDoorBonus}
+              toggleParkBonus={toggleParkBonus}
+              clearPlotBonus={clearPlotBonus}
+              doorClosedBonus={doorClosedBonus}
+              parkBonus={parkBonus}
             />
           </div>
         </div>
