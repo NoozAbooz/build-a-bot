@@ -51,6 +51,10 @@
   background-color: purple;
 }
 
+.square.orange {
+  background-color: rgb(255, 123, 0);
+}
+
 .square.yellow {
   background-color: darkgoldenrod;
   align-items: center;

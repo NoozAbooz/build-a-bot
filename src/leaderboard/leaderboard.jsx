@@ -95,7 +95,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
   return (
     <div className="leaderboard">
       <div className="leaderboard-title">
-        <h1>Leaderboard</h1>
+        {/* <h1>Leaderboard</h1> */}
         <h1>Robots Made: {rowCount}</h1>
       </div>
         <div className="controls">
@@ -121,7 +121,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
               <td>{index + 1}</td>
               <td>{row.name}</td>
               <td>{row.score}</td>
-              <td>{new Date(row.timestamp).toLocaleDateString()}</td>
+              <td>{new Date(row.timestamp).toLocaleString()}</td>
             </tr>
           ))}
         </tbody>

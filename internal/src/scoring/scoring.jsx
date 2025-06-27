@@ -16,33 +16,42 @@ const ScoringMenu = ({
     <div className="square-container">
       <div className="square green">
         <button onClick={incrementCropCount}>+</button>
-        <span>Crop (1pt)</span>
+        <span>Green (4pt)</span>
         <span>{cropCount}</span>
         <button onClick={decrementCropCount}>-</button>
 		<div className="button-group">
-          <button className={`${bonusToggled ? 'toggled' : ''}`} onClick={toggleBonus}>Bonus +5pt</button>
+          <button className={`${bonusToggled ? 'toggled' : ''}`} onClick={toggleBonus}>Bonus +15pt</button>
 		</div>
       </div>
+
       <div className="square purple">
         <button onClick={incrementBaleCount}>+</button>
-        <span>Hay Bale (4pt)</span>
+        <span>Purple (2pt)</span>
         <span>{baleCount}</span>
         <button onClick={decrementBaleCount}>-</button>
       </div>
+
+      <div className="square orange">
+        <button onClick={incrementBaleCount}>+</button>
+        <span>Purple (2pt)</span>
+        <span>{baleCount}</span>
+        <button onClick={decrementBaleCount}>-</button>
+      </div>
+
       <div className="square yellow">
-        <span>Park</span>
+        <span>Park/Service</span>
         <div className="button-group">
 		  <button
-            className={toggledButton === 'partial' ? 'toggled' : ''}
-            onClick={() => handleParkButtonClick(2, 'partial')}
+            className={toggledButton === 'park' ? 'toggled' : ''}
+            onClick={() => handleParkButtonClick(10, 'park')}
           >
-            Partial +2pt
+            Park +10pt
           </button>
           <button
-            className={toggledButton === 'full' ? 'toggled' : ''}
-            onClick={() => handleParkButtonClick(5, 'full')}
+            className={toggledButton === 'service' ? 'toggled' : ''}
+            onClick={() => handleParkButtonClick(20, 'service')}
           >
-            Full +5pt
+            Service +20pt
           </button>
           <button
             onClick={() => handleParkButtonClick(0, '')}
@@ -51,6 +60,7 @@ const ScoringMenu = ({
           </button>
         </div>
       </div>
+
     </div>
   );
 };

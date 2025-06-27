@@ -63,7 +63,7 @@ const App = () => {
   };
 
   const incrementCropCount = () => {
-    if (cropCount < 18) {
+    if (cropCount < 8) {
       setCropCount(cropCount + 1);
     }
   };
@@ -78,13 +78,13 @@ const App = () => {
     if (bonusToggled) {
       setBonus(0);
     } else {
-      setBonus(5);
+      setBonus(15);
     }
     setBonusToggled(!bonusToggled);
   };
 
   const incrementBaleCount = () => {
-    if (baleCount < 5) {
+    if (baleCount < 4) {
       setBaleCount(baleCount + 1);
     }
   };

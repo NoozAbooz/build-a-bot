@@ -32,7 +32,7 @@ html, body {
 
 .title-text {
   display: block; /* Ensure it takes a new line */
-  font-size: 2em; /* Increase font size */
+  font-size: 4em; /* Increase font size */
   color: #ffffff; /* Text color for "Calgary Stampede" */
   margin-bottom: 10px; /* Space between title and subtitle */
   font-weight: 500; /* Font weight for "Calgary Stampede" */
