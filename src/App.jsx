@@ -25,7 +25,7 @@ function App() {
         </BrowserView>
 
         <div className="text-container">
-          <span className="title-text">Leaderboard</span>
+          <span className="title-text">Driver Challenge Leaderboard</span>
           <span className="subtitle-text">CS Build-a-Bot</span>
         </div>
 
