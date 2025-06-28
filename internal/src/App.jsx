@@ -12,6 +12,7 @@ const App = () => {
 
   const [cropCount, setCropCount] = useState(0);
   const [baleCount, setBaleCount] = useState(0);
+  const [pingPongCount, setPingPongCount] = useState(0);
   const [parkCount, setParkCount] = useState(0);
   const [bonus, setBonus] = useState(0);
   const [bonusToggled, setBonusToggled] = useState(false);
@@ -20,9 +21,9 @@ const App = () => {
   const [toggledButton, setToggledButton] = useState('');
 
   useEffect(() => {
-    const totalScore = cropCount + (baleCount * 4) + parkCount + bonus;
+    const totalScore = (cropCount * 4) + bonus + (baleCount * 2) + (pingPongCount * 10) + parkCount;
     setScore(totalScore);
-  }, [cropCount, baleCount, parkCount, bonus]);
+  }, [cropCount, baleCount, parkCount, bonus, pingPongCount]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,18 +49,18 @@ const App = () => {
       setStatusType('success');
       setName('');
       setScore(0);
-      setAge('');
-      setEmail('');
-      setPhone('');
       setCropCount(0);
       setBaleCount(0);
       setParkCount(0);
       setBonus(0);
       setBonusToggled(false);
       setToggledButton('');
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     }
     setIsSubmitting(false);
-    setTimeout(() => setStatus(''), 8000);
   };
 
   const incrementCropCount = () => {
@@ -88,10 +89,20 @@ const App = () => {
       setBaleCount(baleCount + 1);
     }
   };
-
   const decrementBaleCount = () => {
     if (baleCount > 0) {
       setBaleCount(baleCount - 1);
+    }
+  };
+
+  const incrementPingPongCount = () => {
+    if (pingPongCount < 3) {
+      setPingPongCount(pingPongCount + 1);
+    }
+  };
+  const decrementPingPongCount = () => {
+    if (pingPongCount > 0) { 
+      setPingPongCount(pingPongCount - 1);
     }
   };
 
@@ -155,6 +166,9 @@ const App = () => {
               baleCount={baleCount}
               incrementBaleCount={incrementBaleCount}
               decrementBaleCount={decrementBaleCount}
+              pingPongCount={pingPongCount}
+              incrementPingPongCount={incrementPingPongCount}
+              decrementPingPongCount={decrementPingPongCount}
               parkCount={parkCount}
               setParkCountValue={setParkCountValue}
               toggledButton={toggledButton}

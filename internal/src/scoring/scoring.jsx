@@ -3,7 +3,9 @@ import './scoring.css';
 
 const ScoringMenu = ({
   cropCount, incrementCropCount, decrementCropCount, toggleBonus, bonusToggled,
-  baleCount, incrementBaleCount, decrementBaleCount, parkCount, setParkCountValue,
+  baleCount, incrementBaleCount, decrementBaleCount, 
+  pingPongCount, incrementPingPongCount, decrementPingPongCount,
+  parkCount, setParkCountValue,
   toggledButton, setToggledButton
 }) => {
 
@@ -32,10 +34,10 @@ const ScoringMenu = ({
       </div>
 
       <div className="square orange">
-        <button onClick={incrementBaleCount}>+</button>
-        <span>Purple (2pt)</span>
-        <span>{baleCount}</span>
-        <button onClick={decrementBaleCount}>-</button>
+        <button onClick={incrementPingPongCount}>+</button>
+        <span>Orange (10pt)</span>
+        <span>{pingPongCount}</span>
+        <button onClick={decrementPingPongCount}>-</button>
       </div>
 
       <div className="square yellow">
