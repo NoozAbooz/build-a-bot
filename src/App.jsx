@@ -21,7 +21,7 @@ function App() {
     <div className="container">
       <div className="title-container">
         <BrowserView>
-          <img src={stampede} alt="Logo 1" className="logo1" />
+          <img src={logo2} alt="Logo 1" className="logo1" />
         </BrowserView>
 
         <div className="text-container">
