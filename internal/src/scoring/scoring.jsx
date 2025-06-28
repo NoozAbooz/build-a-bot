@@ -35,7 +35,7 @@ const ScoringMenu = ({
 
       <div className="square orange">
         <button onClick={incrementPingPongCount}>+</button>
-        <span>Orange (10pt)</span>
+        <span>PingPong (10pt)</span>
         <span>{pingPongCount}</span>
         <button onClick={decrementPingPongCount}>-</button>
       </div>
