@@ -79,6 +79,31 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
     return '';
   };
 
+  // Calculate consistent ranks based on score (descending)
+  const calculateRanks = (dataArray) => {
+    const rankSorted = [...dataArray].sort((a, b) => {
+      if (b.score === a.score) {
+        // If scores are equal, earlier submission gets better rank
+        return new Date(a.timestamp) - new Date(b.timestamp);
+      }
+      return b.score - a.score; // Always sort by score descending for rank
+    });
+
+    // Assign ranks
+    const rankedData = rankSorted.map((item, index) => ({
+      ...item,
+      rank: index + 1
+    }));
+
+    // Create a map of id -> rank for quick lookup
+    const rankMap = {};
+    rankedData.forEach(item => {
+      rankMap[item.id] = item.rank;
+    });
+
+    return rankMap;
+  };
+
   const sortedData = [...data].sort((a, b) => {
     if (sortField === 'score') {
       if (b.score === a.score) {
@@ -91,6 +116,17 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
     }
     return 0;
   });
+
+  // Calculate ranks for all data items
+  const rankMap = calculateRanks(data);
+  
+  // Get the right class based on true rank, not display position
+  const getRowClassByRank = (rank) => {
+    if (rank === 1) return 'first-place';
+    if (rank === 2) return 'second-place';
+    if (rank === 3) return 'third-place';
+    return '';
+  };
 
   return (
     <div className="leaderboard">
@@ -117,8 +153,8 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
         </thead>
         <tbody>
           {sortedData.map((row, index) => (
-            <tr key={row.id} className={getRowClass(index)}>
-              <td>{index + 1}</td>
+            <tr key={row.id} className={getRowClassByRank(rankMap[row.id])}>
+              <td>{rankMap[row.id]}</td>
               <td>{row.name}</td>
               <td>{row.score}</td>
               <td>{new Date(row.timestamp).toLocaleString()}</td>
