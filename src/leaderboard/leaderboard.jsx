@@ -66,7 +66,7 @@ supabase // super duper important "future", subscribes to supabase broadcasts to
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
       setSortField(field);
-      setSortOrder('asc');
+      setSortOrder('desc');
     }
   };
 
